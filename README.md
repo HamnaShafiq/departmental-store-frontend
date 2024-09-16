@@ -1,3 +1,5 @@
-# departmental-Store-frontend
-
-This project is made using react, html, css, bootstrap and Type-script,
+This project is made using 
+Next js
+Bootstrap
+Html
+CSS
