@@ -1,11 +1,8 @@
 import Head from "next/head";
 import Navbar from "../components/navbar";
-import Header from "../components/header";
-import Featured from "../components/featured";
-import Categories from "../components/cteagories";
 import Footer from "../components/footer";
 
-const Home = () => {
+export default function Home() {
     return (
         <>
             <Head>
@@ -15,12 +12,7 @@ const Home = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Navbar/>
-            <Header/>
-            <Categories/>
-            <Featured/>
             <Footer/>
         </>
     );
 }
-
-export default Home;
