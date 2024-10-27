@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Navbar from "../components/navbar";
 import Header from "../components/header";
 import Featured from "../components/featured";
 import Categories from "../components/cteagories";
-import Footer from "../components/footer";
+
 
 const Home = () => {
     return (
@@ -14,11 +13,10 @@ const Home = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Navbar/>
             <Header/>
             <Categories/>
             <Featured/>
-            <Footer/>
+            
         </>
     );
 }
