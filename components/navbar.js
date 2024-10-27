@@ -127,17 +127,17 @@ export default function Navbar() {
                             </button>
                             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                 <div className="navbar-nav mr-auto py-0">
-                                    <a href="index.html" className="nav-item nav-link active">Home</a>
-                                    <a href="shop.html" className="nav-item nav-link">Shop</a>
-                                    <a href="detail.html" className="nav-item nav-link">Shop Detail</a>
+                                    <a href="index" className="nav-item nav-link active">Home</a>
+                                    <a href="shop" className="nav-item nav-link">Shop</a>
+                                    <a href="detail" className="nav-item nav-link">Shop Detail</a>
                                     <div className="nav-item dropdown">
                                         <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i className="fa fa-angle-down mt-1"></i></a>
                                         <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                            <a href="cart.html" className="dropdown-item">Shopping Cart</a>
-                                            <a href="checkout.html" className="dropdown-item">Checkout</a>
+                                            <a href="cart" className="dropdown-item">Shopping Cart</a>
+                                            <a href="checkout" className="dropdown-item">Checkout</a>
                                         </div>
                                     </div>
-                                    <a href="contact.html" className="nav-item nav-link">Contact</a>
+                                    <a href="contact" className="nav-item nav-link">Contact</a>
                                 </div>
                                 <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
                                     <a href="" className="btn px-0">

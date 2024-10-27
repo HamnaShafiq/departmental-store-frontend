@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Cart from "../components/cart";
+import Cart from "./cart";
 import Checkout from "../components/checkout";
-import Contact from "../components/contact";
+import Contact from "./contact";
 import Detail from "../components/detail";
 import Product from "../components/product";
 
