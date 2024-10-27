@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Breadcrumb from "@/components/shop/breadcrumb";
 
-export default function Home() {
+export default function Shop() {
     return (
         <>
             <Head>

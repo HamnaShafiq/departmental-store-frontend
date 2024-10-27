@@ -18,10 +18,9 @@ const Home = () => {
             <Contact/>
             <Detail/>
             <Product/>
-            
-
+    
         </>
-    );
+    )
 }
 
 export default Home;
