@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Breadcrumb from "@/components/shop/breadcrumb";
 
-export default function Shop() {
+const Shop = () => {
     return (
         <>
             <Head>
@@ -20,3 +20,5 @@ export default function Shop() {
         </>
     );
 }
+
+export default Shop;
