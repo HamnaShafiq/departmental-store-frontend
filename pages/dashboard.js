@@ -1,10 +1,11 @@
 import Head from "next/head";
-import Cart from "@/components/cart";
-import Checkout from "@/components/checkout";
-import Contact from "@/components/contact";
-import Detail from "@/components/detail";
-import Product from "@/components/Product";
-const Home = () => {
+import Cart from "../components/cart";
+import Checkout from "../components/checkout";
+import Contact from "../components/contact";
+import Detail from "../components/detail";
+import Product from "../components/product";
+
+const Dashboard = () => {
     return (
         <>
             <Head>
@@ -23,4 +24,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Dashboard;

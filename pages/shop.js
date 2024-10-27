@@ -11,8 +11,8 @@ export default function Shop() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Breadcrumb/>
-            <div class="container-fluid">
-                <div class="row px-xl-5">
+            <div className="container-fluid">
+                <div className="row px-xl-5">
                     <sidebar/>
                     <product/>     
                 </div>   

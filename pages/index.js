@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../components/header";
 import Featured from "../components/featured";
-import Categories from "../components/cteagories";
+import Categories from "../components/cateagories";
 
 
 const Home = () => {
