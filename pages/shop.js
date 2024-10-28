@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Breadcrumb from "@/components/shop/breadcrumb";
+import Sidebar from "@/components/shop/sidebar";
+import Products from "@/components/shop/product";
 
 const Shop = () => {
     return (
@@ -13,8 +15,8 @@ const Shop = () => {
             <Breadcrumb/>
             <div className="container-fluid">
                 <div className="row px-xl-5">
-                    <sidebar/>
-                    <product/>     
+                    <Sidebar/>
+                    <Products/>     
                 </div>   
             </div>
         </>

@@ -1,4 +1,4 @@
-export default function product() {
+export default function Products() {
     return (
         <>
           {/* <!-- Shop Product Start --> */}
@@ -33,11 +33,11 @@ export default function product() {
                             <div className="col-lg-4 col-md-6 col-sm-6 pb-1">
                                 <div className="product-item bg-light mb-4">
                                     <div className="product-img position-relative overflow-hidden">
-                                        <img classNames="img-fluid w-100" src="img/product-1.jpg" alt="" />
+                                        <img className="img-fluid w-100" src="img/product-1.jpg" alt="" /> 
                                         <div className="product-action">
                                             <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-shopping-cart"></i></a>
                                             <a className="btn btn-outline-dark btn-square" href=""><i className="far fa-heart"></i></a>
-                                            <a classNames="btn btn-outline-dark btn-square" href=""><i className="fa fa-sync-alt"></i></a>
+                                            <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-sync-alt"></i></a>
                                             <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-search"></i></a>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@ export default function product() {
                                             <small className="fa fa-star text-primary mr-1"></small>
                                             <small className="fa fa-star text-primary mr-1"></small>
                                             <small className="fa fa-star text-primary mr-1"></small>
-                                            <small className="fa fa-star text-primary mr-1"></small>
+                                            <small className="fa fa-star-half-alt text-primary mr-1"></small>
                                             <small>(99)</small>
                                         </div>
                                     </div>
