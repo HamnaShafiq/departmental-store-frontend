@@ -129,7 +129,7 @@ export default function Navbar() {
                                 <div className="navbar-nav mr-auto py-0">
                                     <a href="index" className="nav-item nav-link active">Home</a>
                                     <a href="shop" className="nav-item nav-link">Shop</a>
-                                    <a href="detail" className="nav-item nav-link">Shop Detail</a>
+                                    <a href="shop-detail" className="nav-item nav-link">Shop Detail</a>
                                     <div className="nav-item dropdown">
                                         <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i className="fa fa-angle-down mt-1"></i></a>
                                         <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">

@@ -1,5 +1,7 @@
 import Detail from "@/components/detail";
 import Head from "next/head";
+import Product from "@/components/Product";
+import BackToTop from "@/components/back-to-top";
 const ShopDetails = () => {
     return (
         <>
@@ -10,6 +12,8 @@ const ShopDetails = () => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Detail/>
+            <Product/>
+            <BackToTop/>
         </>
     );
 }

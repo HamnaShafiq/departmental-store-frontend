@@ -98,7 +98,7 @@ export default function Detail() {
                             </form>
                         </div>
                         <div className="d-flex align-items-center mb-4 pt-2">
-                            <div className="input-group quantity mr-3" style="width: 130px;">
+                            <div className="input-group quantity mr-3" style={{ width: "130px" }}>
                                 <div className="input-group-btn">
                                     <button className="btn btn-primary btn-minus">
                                         <i className="fa fa-minus"></i>
@@ -191,7 +191,7 @@ export default function Detail() {
                                     <div className="col-md-6">
                                         <h4 className="mb-4">1 review for "Product Name"</h4>
                                         <div className="media mb-4">
-                                            <img src="img/user.jpg" alt="Image" className="img-fluid mr-3 mt-1" style="width: 45px;" />
+                                            <img src="img/user.jpg" alt="Image" className="img-fluid mr-3 mt-1" style={{ width: "45px" }} />
                                             <div className="media-body">
                                                 <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
                                                 <div className="text-primary mb-2">
@@ -242,10 +242,11 @@ export default function Detail() {
                     </div>
                 </div>
             </div>
-        
-            {/* <!-- Shop Detail End --> */ }
+
+            {/* <!-- Shop Detail End --> */}
+          
         </>
     )
-  }
-  
-    
+}
+
+

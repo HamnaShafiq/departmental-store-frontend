@@ -53,6 +53,7 @@ export default function Products() {
                                             <small className="fa fa-star text-primary mr-1"></small>
                                             <small className="fa fa-star-half-alt text-primary mr-1"></small>
                                             <small>(99)</small>
+                                            
                                         </div>
                                     </div>
                                 </div>

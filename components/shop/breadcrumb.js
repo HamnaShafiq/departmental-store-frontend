@@ -1,7 +1,7 @@
 export default function Breadcrumb() {
     return (
         <>
-            <div cclassName="container-fluid">
+            <div className="container-fluid">
                 <div className="row px-xl-5">
                     <div className="col-12">
                         <nav className="breadcrumb bg-light mb-30">
