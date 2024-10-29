@@ -1,5 +1,6 @@
 import Navbar from './navbar';
 import Footer from './footer';
+import BackToTop from "../components/back-to-top";
 
 export default function Layout({ children }) {
   return (
@@ -8,6 +9,7 @@ export default function Layout({ children }) {
       <main>
         {children} {/* This will render the page content */}
       </main>
+      <BackToTop/>
       <Footer />
     </>
   );

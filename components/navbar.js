@@ -127,7 +127,7 @@ export default function Navbar() {
                             </button>
                             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                 <div className="navbar-nav mr-auto py-0">
-                                    <a href="index" className="nav-item nav-link active">Home</a>
+                                    <a href="/" className="nav-item nav-link active">Home</a>
                                     <a href="shop" className="nav-item nav-link">Shop</a>
                                     <a href="shop-detail" className="nav-item nav-link">Shop Detail</a>
                                     <div className="nav-item dropdown">

@@ -1,7 +1,8 @@
 import Detail from "@/components/detail";
 import Head from "next/head";
-import Product from "@/components/Product";
-import BackToTop from "@/components/back-to-top";
+import Product from "@/components/products";
+
+
 const ShopDetails = () => {
     return (
         <>
@@ -13,7 +14,6 @@ const ShopDetails = () => {
             </Head>
             <Detail/>
             <Product/>
-            <BackToTop/>
         </>
     );
 }

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Cart from "@/components/cart";
-import BackToTop from "@/components/backtop";
 import Product from "@/components/products";
 
 const ShoppingCart = () => {
@@ -14,7 +13,6 @@ const ShoppingCart = () => {
             </Head>
             <Cart/>
             <Product/>
-            <BackToTop/>
         </>
     );
 }
