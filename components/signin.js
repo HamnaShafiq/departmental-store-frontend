@@ -1,4 +1,4 @@
-export default function LogIn() {
+export default function SignIn() {
     return (
         <>
             <div class="container small-container mt-5" style={{ max: '500px'}}>

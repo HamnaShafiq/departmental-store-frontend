@@ -17,16 +17,16 @@ export default function Navbar() {
                         <div className="d-inline-flex align-items-center">
                             <div className="btn-group">
                                 <button type="button" className="btn btn-sm btn-light dropdown-toggle"
-                                        data-toggle="dropdown">My Account
+                                    data-toggle="dropdown">My Account
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
-                                    <button className="dropdown-item" type="button">Sign in</button>
-                                    <button className="dropdown-item" type="button">Sign up</button>
+                                    <a href="http://localhost:3000/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
+                                    <a href="http://localhost:3000/sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
                                 </div>
                             </div>
                             <div className="btn-group mx-2">
                                 <button type="button" className="btn btn-sm btn-light dropdown-toggle"
-                                        data-toggle="dropdown">USD
+                                    data-toggle="dropdown">USD
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <button className="dropdown-item" type="button">EUR</button>
@@ -36,7 +36,7 @@ export default function Navbar() {
                             </div>
                             <div className="btn-group">
                                 <button type="button" className="btn btn-sm btn-light dropdown-toggle"
-                                        data-toggle="dropdown">EN
+                                    data-toggle="dropdown">EN
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <button className="dropdown-item" type="button">FR</button>
@@ -49,12 +49,12 @@ export default function Navbar() {
                             <a href="" className="btn px-0 ml-2">
                                 <i className="fas fa-heart text-dark"></i>
                                 <span className="badge text-dark border border-dark rounded-circle"
-                                      style={{paddingBottom: '2px'}}>0</span>
+                                    style={{ paddingBottom: '2px' }}>0</span>
                             </a>
                             <a href="" className="btn px-0 ml-2">
                                 <i className="fas fa-shopping-cart text-dark"></i>
                                 <span className="badge text-dark border border-dark rounded-circle"
-                                      style={{paddingBottom: '2px'}}>0</span>
+                                    style={{ paddingBottom: '2px' }}>0</span>
                             </a>
                         </div>
                     </div>
@@ -69,11 +69,11 @@ export default function Navbar() {
                     <div className="col-lg-4 col-6 text-left">
                         <form action="">
                             <div className="input-group">
-                                <input type="text" className="form-control" placeholder="Search for products"/>
+                                <input type="text" className="form-control" placeholder="Search for products" />
                                 <div className="input-group-append">
-                                     <span className="input-group-text bg-transparent text-primary">
+                                    <span className="input-group-text bg-transparent text-primary">
                                         <i className="fa fa-search"></i>
-                                     </span>
+                                    </span>
                                 </div>
                             </div>
                         </form>
@@ -90,11 +90,11 @@ export default function Navbar() {
             <div className="container-fluid bg-dark mb-30">
                 <div className="row px-xl-5">
                     <div className="col-lg-3 d-none d-lg-block">
-                        <a className="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style={{height: '65px', padding: '0 30px'}}>
+                        <a className="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style={{ height: '65px', padding: '0 30px' }}>
                             <h6 className="text-dark m-0"><i className="fa fa-bars mr-2"></i>Categories</h6>
                             <i className="fa fa-angle-down text-dark"></i>
                         </a>
-                        <nav className="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style={{width: 'calc(100% - 30px)', zIndex: 999}}>
+                        <nav className="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style={{ width: 'calc(100% - 30px)', zIndex: 999 }}>
                             <div className="navbar-nav w-100">
                                 <div className="nav-item dropdown dropright">
                                     <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i className="fa fa-angle-right float-right mt-1"></i></a>
@@ -142,11 +142,11 @@ export default function Navbar() {
                                 <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
                                     <a href="" className="btn px-0">
                                         <i className="fas fa-heart text-primary"></i>
-                                        <span className="badge text-secondary border border-secondary rounded-circle" style={{paddingBottom: '2px'}}>0</span>
+                                        <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
                                     </a>
                                     <a href="" className="btn px-0 ml-3">
                                         <i className="fas fa-shopping-cart text-primary"></i>
-                                        <span className="badge text-secondary border border-secondary rounded-circle" style={{paddingBottom: '2px'}}>0</span>
+                                        <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
                                     </a>
                                 </div>
                             </div>
