@@ -1,8 +1,7 @@
-import Detail from "@/components/detail";
-import Head from "next/head";
-import Product from "@/components/products";
 
-const ShopDetails = () => {
+import Orderpage from "@/components/orderpage";
+import Head from "next/head";
+const OrderPage = () => {
     return (
         <>
             <Head>
@@ -11,11 +10,9 @@ const ShopDetails = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Detail/>
-            <Product/>
+            <Orderpage/>
             
         </>
     );
 }
-
-export default ShopDetails;
+export default OrderPage;

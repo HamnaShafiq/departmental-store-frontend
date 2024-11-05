@@ -30,7 +30,7 @@ export default function SignIn() {
                         </button>
                     </div>
                     <div class="text-center">
-                        New customer? <a href="signup.html">Create your account</a>
+                        New customer? <a href="http://localhost:3000/sign-up">Create your account</a>
                     </div>
                 </form>
             </div>

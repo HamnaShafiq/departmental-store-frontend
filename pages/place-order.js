@@ -1,8 +1,6 @@
-import Detail from "@/components/detail";
+import Placeorder from "@/components/placeorder";
 import Head from "next/head";
-import Product from "@/components/products";
-
-const ShopDetails = () => {
+const PlaceOrder = () => {
     return (
         <>
             <Head>
@@ -11,11 +9,9 @@ const ShopDetails = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Detail/>
-            <Product/>
+            <Placeorder/>
             
         </>
     );
 }
-
-export default ShopDetails;
+export default PlaceOrder;

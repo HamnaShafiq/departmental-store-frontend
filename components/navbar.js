@@ -22,7 +22,14 @@ export default function Navbar() {
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <a href="http://localhost:3000/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
                                     <a href="http://localhost:3000/sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
+                                    <button className="dropdown-item" type="button" onclick="signoutHandler()">Sign Out</button>
+
                                 </div>
+                            </div>
+                            <div className="container-fluid">
+                                <button className="btn btn-light" id="modeSwitcher" onclick="switchModeHandler()">
+                                    <i className="fas fa-sun" id="modeIcon"></i> <span id="modeText">Light</span>
+                                </button>
                             </div>
                             <div className="btn-group mx-2">
                                 <button type="button" className="btn btn-sm btn-light dropdown-toggle"
@@ -154,6 +161,13 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+            <script>
+                function signoutHandler() {
+                    // Handle the sign-out logic here
+                    console.log("User signed out")
+    // Redirect or additional sign-out logic
+  }
+            </script>
         </>
     );
 }
