@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Navbar() {
     return (
@@ -151,23 +152,17 @@ export default function Navbar() {
                                         <i className="fas fa-heart text-primary"></i>
                                         <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
                                     </a>
-                                    <a href="" className="btn px-0 ml-3">
-                                        <i className="fas fa-shopping-cart text-primary"></i>
+                                    <Link href={`/cart`} className="btn px-0 ml-3">
+                                    <i className="fas fa-shopping-cart text-primary"></i>
                                         <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
-                                    </a>
+                                    
+                                    </Link>
                                 </div>
                             </div>
                         </nav>
                     </div>
                 </div>
             </div>
-            <script>
-                function signoutHandler() {
-                    // Handle the sign-out logic here
-                    console.log("User signed out")
-    // Redirect or additional sign-out logic
-  }
-            </script>
         </>
     );
 }

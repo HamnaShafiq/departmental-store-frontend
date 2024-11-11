@@ -1,11 +1,14 @@
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
+import {ProductCategoryProvider} from '../components/ProductCategoryContext';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} /> 
-    </Layout>
+    <ProductCategoryProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ProductCategoryProvider>
   );
 }
 

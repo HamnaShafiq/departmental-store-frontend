@@ -1,5 +1,19 @@
+import { useEffect } from "react"
+import { useRouter } from 'next/router';
+import { useProduct } from '../../components/ProductCategoryContext'
 
-export default function Detail() {
+export default function Product() {
+    const router = useRouter();
+    const { slug } = router.query;
+    // const { product, fetchProductBySlug } = useProduct();
+
+    useEffect(() => {
+        if (slug) {
+            console.log('slug', slug);
+
+        }
+    }, [slug])
+
     return (
         <>
             <div className="container-fluid pb-5">
@@ -8,16 +22,16 @@ export default function Detail() {
                         <div id="product-carousel" className="carousel slide" data-ride="carousel">
                             <div className="carousel-inner bg-light">
                                 <div className="carousel-item active">
-                                    <img className="w-100 h-100" src="img/product-1.jpg" alt="Image" />
+                                    <img className="w-100 h-100" src="../img/product-1.jpg" alt="Image" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="w-100 h-100" src="img/product-2.jpg" alt="Image" />
+                                    <img className="w-100 h-100" src="../img/product-2.jpg" alt="Image" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="w-100 h-100" src="img/product-3.jpg" alt="Image" />
+                                    <img className="w-100 h-100" src="../img/product-3.jpg" alt="Image" />
                                 </div>
                                 <div className="carousel-item">
-                                    <img className="w-100 h-100" src="img/product-4.jpg" alt="Image" />
+                                    <img className="w-100 h-100" src="../img/product-4.jpg" alt="Image" />
                                 </div>
                             </div>
                             <a className="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -128,75 +142,6 @@ export default function Detail() {
                                         <i className="fab fa-pinterest"></i>
                                     </a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Tabs Section */}
-                <div className="row px-xl-5">
-                    <div className="col">
-                        <div className="bg-light p-30">
-                            <div className="nav nav-tabs mb-4">
-                                <a className="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                                <a className="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Information</a>
-                                <a className="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
-                            </div>
-                            <div className="tab-content">
-                                <div className="tab-pane fade show active" id="tab-pane-1">
-                                    <h4 className="mb-3">Product Description</h4>
-                                    <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea...</p>
-                                    {/* Further content */}
-                                </div>
-                                <div className="tab-pane fade" id="tab-pane-2">
-                                    <h4 className="mb-3">Additional Information</h4>
-                                    <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea...</p>
-                                    {/* Further content */}
-                                </div>
-                                <div className="tab-pane fade" id="tab-pane-3">
-                                    <h4 className="mb-4">Leave a review</h4>
-                                    <form>
-                                        <div className="form-group">
-                                            <label htmlFor="review-name">Your Name</label>
-                                            <input type="text" className="form-control" id="review-name" placeholder="Enter your name" required />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="review-email">Your Email</label>
-                                            <input type="email" className="form-control" id="review-email" placeholder="Enter your email" required />
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Your Rating</label>
-                                            <div className="d-flex">
-                                                <div className="form-check form-check-inline">
-                                                    <input className="form-check-input" type="radio" name="rating" id="rating-1" value="1" />
-                                                    <label className="form-check-label" htmlFor="rating-1">1</label>
-                                                </div>
-                                                <div className="form-check form-check-inline">
-                                                    <input className="form-check-input" type="radio" name="rating" id="rating-2" value="2" />
-                                                    <label className="form-check-label" htmlFor="rating-2">2</label>
-                                                </div>
-                                                <div className="form-check form-check-inline">
-                                                    <input className="form-check-input" type="radio" name="rating" id="rating-3" value="3" />
-                                                    <label className="form-check-label" htmlFor="rating-3">3</label>
-                                                </div>
-                                                <div className="form-check form-check-inline">
-                                                    <input className="form-check-input" type="radio" name="rating" id="rating-4" value="4" />
-                                                    <label className="form-check-label" htmlFor="rating-4">4</label>
-                                                </div>
-                                                <div className="form-check form-check-inline">
-                                                    <input className="form-check-input" type="radio" name="rating" id="rating-5" value="5" />
-                                                    <label className="form-check-label" htmlFor="rating-5">5</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="review-message">Your Review</label>
-                                            <textarea id="review-message" className="form-control" rows="4" placeholder="Write your review here" required></textarea>
-                                        </div>
-                                        <button type="submit" className="btn btn-primary">Submit Review</button>
-                                    </form>
-                                </div>
-
                             </div>
                         </div>
                     </div>

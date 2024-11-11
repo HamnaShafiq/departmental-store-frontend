@@ -4,15 +4,15 @@ export default function History() {
             <div class="container mt-5">
                 <h1>Order History</h1>
 
-                <div id="loadingBox" style={{display: "none"}} class="spinner-border text-primary" role="status">
+                <div id="loadingBox"className="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
 
-                <div id="messageBox" style={{display: "none"}} class="alert alert-danger" role="alert">
+                <div id="messageBox" className="alert alert-danger" role="alert">
                     Error loading order history
                 </div>
 
-                <table class="table table-bordered mt-3" id="orderTable" style={{display: "none"}}>
+                <table class="table table-bordered mt-3" id="orderTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -24,7 +24,6 @@ export default function History() {
                         </tr>
                     </thead>
                     <tbody id="orderBody">
-                        {/* <!-- Order rows will be dynamically populated here --> */}
                     </tbody>
                 </table>
             </div>
