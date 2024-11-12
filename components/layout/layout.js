@@ -1,6 +1,6 @@
 import Navbar from './navbar';
 import Footer from './footer';
-import BackToTop from "../back-to-top";
+import BackToTop from "./back-to-top";
 
 export default function Layout({ children }) {
   return (

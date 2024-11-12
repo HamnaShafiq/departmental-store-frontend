@@ -1,19 +1,25 @@
-import { useEffect } from "react"
+import { useEffect, useState ,useContext} from "react"
 import { useRouter } from 'next/router';
-import { useProduct } from '../../components/ProductCategoryContext'
+import { ProductCategoryContext } from '@/components/ProductCategoryContext';
 
 export default function Product() {
     const router = useRouter();
     const { slug } = router.query;
-    // const { product, fetchProductBySlug } = useProduct();
+    const [productData, setProductData] = useState(null);
+    const { fetchProductBySlug } = useContext(ProductCategoryContext);
 
     useEffect(() => {
         if (slug) {
-            console.log('slug', slug);
-
+            const fetchData = async () => {
+                const response = await fetchProductBySlug(slug);
+                setProductData(response.data)
+                console.log('productData', productData);
+                
+            };
+            fetchData();
         }
-    }, [slug])
 
+    }, [fetchProductBySlug, slug]);
     return (
         <>
             <div className="container-fluid pb-5">
@@ -45,7 +51,7 @@ export default function Product() {
 
                     <div className="col-lg-7 h-auto mb-30">
                         <div className="h-100 bg-light p-30">
-                            <h3>Product Name Goes Here</h3>
+                            <h3>{productData?.name}</h3>
                             <div className="d-flex mb-3">
                                 <div className="text-primary mr-2">
                                     <small className="fas fa-star"></small>
@@ -54,10 +60,10 @@ export default function Product() {
                                     <small className="fas fa-star-half-alt"></small>
                                     <small className="far fa-star"></small>
                                 </div>
-                                <small className="pt-1">(99 Reviews)</small>
+                                <small className="pt-1">{productData?.numReviews}</small>
                             </div>
                             <h3 className="font-weight-semi-bold mb-4">$150.00</h3>
-                            <p className="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea Nonumy</p>
+                            <p className="mb-4">{productData?.description}</p>
                             <div className="d-flex mb-3">
                                 <strong className="text-dark mr-3">Sizes:</strong>
                                 <form>

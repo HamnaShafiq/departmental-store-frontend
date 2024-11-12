@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from 'axios';
+import Link from "next/link";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -18,7 +19,6 @@ export default function Categories() {
 
     useEffect(() => {
         fetchCategories()
-
     }, [])
 
     return (
@@ -31,7 +31,7 @@ export default function Categories() {
                         return (
                             <div className="col-lg-3 col-md-4 col-sm-6 pb-1">
                                 {cat.products.length > 0 &&
-                                    <a className="text-decoration-none" href="">
+                                    <Link className="text-decoration-none" href={`/category/${cat.slug}`}>
                                         <div className="cat-item d-flex align-items-center mb-4">
                                             <div className="overflow-hidden" style={{ width: '100px', height: '100px' }}>
                                                 <img className="img-fluid" src="/img/cat-1.jpg" alt="s" />
@@ -41,7 +41,7 @@ export default function Categories() {
                                                 <small className="text-body">{cat.products.length} Products</small>
                                             </div>
                                         </div>
-                                    </a>
+                                    </Link>
                                 }
                             </div>
                         )

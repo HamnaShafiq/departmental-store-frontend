@@ -30,7 +30,7 @@ export const ProductCategoryProvider = ({ children }) => {
 
     const fetchProductBySlug = async (slug) => {
         try {
-            const response = await fetch(`${API_URL}/api/products/${slug}`); // Replace with your API endpoint
+            const response = await fetch(`${API_URL}/api/product/read/${slug}`); 
             return await response.json();
         } catch (error) {
             console.error(`Error fetching product with slug ${slug}:`, error);
@@ -38,11 +38,10 @@ export const ProductCategoryProvider = ({ children }) => {
         }
     };
 
-    // Fetch a specific category by slug
     const fetchCategoryBySlug = async (slug) => {
         try {
-            const response = await fetch(`${API_URL}/api/categories/${slug}`); // Replace with your API endpoint
-            return await response.json();
+            const response = await axios.get(`${API_URL}/api/category/read/${slug}`); 
+            return response;
         } catch (error) {
             console.error(`Error fetching category with slug ${slug}:`, error);
             return null;

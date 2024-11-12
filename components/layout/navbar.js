@@ -21,8 +21,8 @@ export default function Navbar() {
                                     data-toggle="dropdown">My Account
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
-                                    <a href="http://localhost:3000/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
-                                    <a href="http://localhost:3000/sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
+                                    <a href="/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
+                                    <a href="sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
                                     <button className="dropdown-item" type="button" onclick="signoutHandler()">Sign Out</button>
 
                                 </div>

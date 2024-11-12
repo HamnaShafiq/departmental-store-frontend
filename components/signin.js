@@ -1,4 +1,5 @@
 export default function SignIn() {
+    const login = {}
     return (
         <>
             <div classname="container small-container mt-5" style={{ max: '500px'}}>
@@ -30,7 +31,7 @@ export default function SignIn() {
                         </button>
                     </div>
                     <div classname="text-center">
-                        New customer? <a href="http://localhost:3000/sign-up">Create your account</a>
+                        New customer? <a href="/sign-up">Create your account</a>
                     </div>
                 </form>
             </div>

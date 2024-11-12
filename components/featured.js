@@ -43,10 +43,9 @@ export default function Featured() {
                                                 className="fa fa-shopping-cart"></i></a>
                                             <a className="btn btn-outline-dark btn-square" href=""><i
                                                 className="far fa-heart"></i></a>
-                                            <Link href={`products/${pro.slug}`} className="btn btn-outline-dark btn-square">
+                                            <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
                                                     <i className="fa fa-search "></i>
                                             </Link>
-
                                         </div>
                                     </div>
 
