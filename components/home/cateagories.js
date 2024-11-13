@@ -1,25 +1,10 @@
-import { useEffect, useState } from "react"
-import axios from 'axios';
+import { useContext } from "react"
 import Link from "next/link";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
 
 export default function Categories() {
 
-    const [categories, setCategories] = useState([]);
-
-    const fetchCategories = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/api/category/`);
-            setCategories(response.data.data);
-        } catch (error) {
-            console.log("Error in fetching categories", error);
-        }
-    };
-
-    useEffect(() => {
-        fetchCategories()
-    }, [])
+    const { categories } = useContext(ProductCategoryContext);
 
     return (
         <>

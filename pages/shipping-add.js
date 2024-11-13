@@ -1,4 +1,4 @@
-import Shippingadd from "@/components/shippingadd";
+import Shippingadd from "@/components/shopping/shippingadd";
 
 const ShippingAd = () => {
     return (

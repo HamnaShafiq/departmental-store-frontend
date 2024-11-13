@@ -1,12 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from 'next/router';
-import { useProduct } from '../../components/ProductCategoryContext';
+import { useProduct } from '../../components/contexts/ProductCategoryContext';
 import Breadcrumb from "@/components/shop/breadcrumb";
 import Sidebar from "@/components/shop/sidebar";
 import Products from "@/components/shop/product";
 
-import { ProductCategoryContext } from '@/components/ProductCategoryContext';
-
+import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
 
 export default function Product() {
     const { fetchCategoryBySlug } = useContext(ProductCategoryContext);

@@ -1,8 +1,8 @@
-import History from "@/components/orderhistory";
+import History from "@/components/shopping/orderhistory";
+
 const OrderHistory= () => {
     return (
         <>
-            
             <History/>
         </>
     );

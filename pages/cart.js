@@ -1,12 +1,10 @@
-
-import Cart from "@/components/cart";
-import Product from "@/components/products";
+import Cart from "@/components/shopping/cart";
 
 const ShoppingCart = () => {
     return (
         <>
             <Cart/>
-            <Product/>
+            {/* <Product/> */}
         </>
     );
 }

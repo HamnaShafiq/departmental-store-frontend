@@ -1,11 +1,9 @@
-import Profile from "@/components/profile";
+import Profile from "@/components/shopping/profile";
 
 const UserProfile = () => {
     return (
         <>
-           
             <Profile/>
-            
         </>
     );
 }

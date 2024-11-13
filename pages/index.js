@@ -1,7 +1,7 @@
 
-import Header from "../components/header";
-import Featured from "../components/featured";
-import Categories from "../components/cateagories";
+import Header from "../components/home/header";
+import Featured from "../components/home/featured";
+import Categories from "../components/home/cateagories";
 
 const Home = () => {
     return (

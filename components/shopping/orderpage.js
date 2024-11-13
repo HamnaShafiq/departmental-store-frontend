@@ -3,19 +3,7 @@ export default function Orderpage() {
         <>
             <div class="container my-5">
                 <h1>Order #12345</h1>
-
-                {/* <!-- Loading Spinner --> 
-                <div id="loadingBox" style={{display: "none"}} class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                {/* 
-                <!-- Error Message --> 
-                <div id="messageBox" style={{display: "none"}}  class="alert alert-danger" role="alert">
-                    Error loading order details
-                </div>*/}
-
-                {/* <!-- Order Details --> */}
-                <div id="orderDetails" style={{ display: "none" }} >
+                <div id="orderDetails" >
                     <div class="row">
                         <div class="col-md-8">
                             {/* <!-- Shipping Card --> */}
@@ -28,7 +16,7 @@ export default function Orderpage() {
                                 </div>
                             </div>
                             {/* 
-        <!-- Payment Card --> */}
+                            <!-- Payment Card --> */}
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">Payment</h5>

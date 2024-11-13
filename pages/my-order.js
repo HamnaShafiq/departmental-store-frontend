@@ -1,12 +1,10 @@
 
-import Orderpage from "@/components/orderpage";
+import Orderpage from "@/components/shopping/orderpage";
 
 const OrderPage = () => {
     return (
         <>
-        
             <Orderpage/>
-            
         </>
     );
 }

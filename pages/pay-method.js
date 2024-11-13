@@ -1,4 +1,4 @@
-import Paymethod from "@/components/payment";
+import Paymethod from "@/components/shopping/payment";
 
 const PayMethod = () => {
     return (

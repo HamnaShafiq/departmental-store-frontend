@@ -1,7 +1,14 @@
-import Head from "next/head";
+import { useContext } from "react"
 import Link from "next/link";
+import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
+import { CartContext } from '@/components/contexts/cartContext';
+
 
 export default function Navbar() {
+    const { categories } = useContext(ProductCategoryContext);
+    const { cartItems } = useContext(CartContext);
+    const itemCount = cartItems && cartItems.items ? cartItems.items.length : 0;
+    
     return (
         <>
             <div className="container-fluid">
@@ -10,8 +17,6 @@ export default function Navbar() {
                         <div className="d-inline-flex align-items-center h-100">
                             <a className="text-body mr-3" href="">About</a>
                             <a className="text-body mr-3" href="">Contact</a>
-                            <a className="text-body mr-3" href="">Help</a>
-                            <a className="text-body mr-3" href="">FAQs</a>
                         </div>
                     </div>
                     <div className="col-lg-6 text-center text-lg-right">
@@ -84,23 +89,14 @@ export default function Navbar() {
                         </a>
                         <nav className="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style={{ width: 'calc(100% - 30px)', zIndex: 999 }}>
                             <div className="navbar-nav w-100">
-                                <div className="nav-item dropdown dropright">
-                                    <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i className="fa fa-angle-right float-right mt-1"></i></a>
-                                    <div className="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                        <a href="" className="dropdown-item">Men's Dresses</a>
-                                        <a href="" className="dropdown-item">Women's Dresses</a>
-                                        <a href="" className="dropdown-item">Baby's Dresses</a>
-                                    </div>
-                                </div>
-                                <a href="" className="nav-item nav-link">Shirts</a>
-                                <a href="" className="nav-item nav-link">Jeans</a>
-                                <a href="" className="nav-item nav-link">Swimwear</a>
-                                <a href="" className="nav-item nav-link">Sleepwear</a>
-                                <a href="" className="nav-item nav-link">Sportswear</a>
-                                <a href="" className="nav-item nav-link">Jumpsuits</a>
-                                <a href="" className="nav-item nav-link">Blazers</a>
-                                <a href="" className="nav-item nav-link">Jackets</a>
-                                <a href="" className="nav-item nav-link">Shoes</a>
+
+                                {categories.map((cat) => (
+                                    <Link href={`/category/${cat.slug}`} className="nav-item nav-link" key={cat.slug}>
+                                        {cat.name}
+                                    </Link>
+                                ))}
+
+
                             </div>
                         </nav>
                     </div>
@@ -116,26 +112,14 @@ export default function Navbar() {
                             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                 <div className="navbar-nav mr-auto py-0">
                                     <a href="/" className="nav-item nav-link active">Home</a>
-                                    <a href="shop" className="nav-item nav-link">Shop</a>
-                                    <a href="shop-detail" className="nav-item nav-link">Shop Detail</a>
-                                    <div className="nav-item dropdown">
-                                        <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i className="fa fa-angle-down mt-1"></i></a>
-                                        <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                            <a href="cart" className="dropdown-item">Shopping Cart</a>
-                                            <a href="checkout" className="dropdown-item">Checkout</a>
-                                        </div>
-                                    </div>
+
                                     <a href="contact" className="nav-item nav-link">Contact</a>
                                 </div>
                                 <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
-                                    <a href="" className="btn px-0">
-                                        <i className="fas fa-heart text-primary"></i>
-                                        <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
-                                    </a>
+
                                     <Link href={`/cart`} className="btn px-0 ml-3">
-                                    <i className="fas fa-shopping-cart text-primary"></i>
-                                        <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
-                                    
+                                        <i className="fas fa-shopping-cart text-primary"></i>
+                                        <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}> {itemCount}</span>
                                     </Link>
                                 </div>
                             </div>

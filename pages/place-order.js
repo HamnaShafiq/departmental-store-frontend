@@ -1,9 +1,8 @@
-import Placeorder from "@/components/placeorder";
+import Placeorder from "@/components/shopping/placeorder";
 
 const PlaceOrder = () => {
     return (
         <>
-            
             <Placeorder/>
             
         </>

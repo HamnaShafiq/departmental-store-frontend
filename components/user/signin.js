@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import { login } from '../redux/authSlice';
+import { login } from '../../redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 

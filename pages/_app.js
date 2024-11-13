@@ -1,6 +1,7 @@
 import { store } from '@/redux/store';
 import Layout from '../components/layout/layout';
-import { ProductCategoryProvider } from '../components/ProductCategoryContext';
+import { ProductCategoryProvider } from '../components/contexts/ProductCategoryContext';
+import { CartProvider } from '../components/contexts/cartContext';
 import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
@@ -11,10 +12,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <ProductCategoryProvider>
-        <Layout>
-          <Component {...pageProps} />
-          <ToastContainer position="top-right" autoClose={3000} />
-        </Layout>
+        <CartProvider>
+          <Layout>
+            <Component {...pageProps} />
+            <ToastContainer position="top-right" autoClose={3000} />
+          </Layout>
+        </CartProvider>
       </ProductCategoryProvider>
     </Provider>
   );

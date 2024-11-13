@@ -1,43 +1,17 @@
-import { useEffect, useState } from "react"
+import { useContext } from "react"
 import axios from 'axios';
 import Link from 'next/link';
 import { toast } from "react-toastify";
+import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
+import { CartContext } from '@/components/contexts/cartContext';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
 
 export default function Featured() {
-    const [products, setProducts] = useState([]);
 
-    const fetchProducts = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/api/product/`);
-            setProducts(response.data.data);
-            console.log('products', products);
-        } catch (error) {
-            console.log("Error in fetching categories", error);
-        }
-    };
+    const { products } = useContext(ProductCategoryContext);
 
-    useEffect(() => {
-        fetchProducts();
-    }, []);
-
-    const handleRedirect = async (productId) => {
-        try {
-            const token = localStorage.getItem('token');
-            console.log('token', token);
-            
-            const response = await axios.get(
-                `${PRIVATE_API_URL}/api/cart/addItem/${productId}`, 
-                { headers: { 'x-access-token': token } }
-            );
-            toast.success('Product added to cart.');
-        } catch (error) {
-            console.log("Error in adding to cart", error);
-            toast.error(error.response?.data?.msg || "Failed to add to cart.");
-        }
-    };
+    const { addItems } = useContext(CartContext);
 
     return (
         <>
@@ -52,14 +26,12 @@ export default function Featured() {
                                     <div className="product-img position-relative overflow-hidden">
                                         <img className="img-fluid w-100" src="img/product-1.jpg" alt="" />
                                         <div className="product-action">
-                                        <button
-                                            className="btn btn-outline-dark btn-square"
-                                            onClick={() => handleRedirect(pro._id)}
-                                        >
-                                            <i className="fa fa-shopping-cart"></i>
-                                        </button>
-                                            <a className="btn btn-outline-dark btn-square" href=""><i
-                                                className="far fa-heart"></i></a>
+                                            <button
+                                                className="btn btn-outline-dark btn-square"
+                                                onClick={() => addItems(pro._id)}
+                                            >
+                                                <i className="fa fa-shopping-cart"></i>
+                                            </button>
                                             <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
                                                 <i className="fa fa-search "></i>
                                             </Link>
