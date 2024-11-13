@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import axios from 'axios';
 import Link from 'next/link';
-
+import { toast } from "react-toastify";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
 
 export default function Featured() {
     const [products, setProducts] = useState([]);
@@ -22,9 +23,21 @@ export default function Featured() {
         fetchProducts();
     }, []);
 
-    const handleRedirect = () => {
-
-    }
+    const handleRedirect = async (productId) => {
+        try {
+            const token = localStorage.getItem('token');
+            console.log('token', token);
+            
+            const response = await axios.get(
+                `${PRIVATE_API_URL}/api/cart/addItem/${productId}`, 
+                { headers: { 'x-access-token': token } }
+            );
+            toast.success('Product added to cart.');
+        } catch (error) {
+            console.log("Error in adding to cart", error);
+            toast.error(error.response?.data?.msg || "Failed to add to cart.");
+        }
+    };
 
     return (
         <>
@@ -39,12 +52,16 @@ export default function Featured() {
                                     <div className="product-img position-relative overflow-hidden">
                                         <img className="img-fluid w-100" src="img/product-1.jpg" alt="" />
                                         <div className="product-action">
-                                            <a className="btn btn-outline-dark btn-square" href=""><i
-                                                className="fa fa-shopping-cart"></i></a>
+                                        <button
+                                            className="btn btn-outline-dark btn-square"
+                                            onClick={() => handleRedirect(pro._id)}
+                                        >
+                                            <i className="fa fa-shopping-cart"></i>
+                                        </button>
                                             <a className="btn btn-outline-dark btn-square" href=""><i
                                                 className="far fa-heart"></i></a>
                                             <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
-                                                    <i className="fa fa-search "></i>
+                                                <i className="fa fa-search "></i>
                                             </Link>
                                         </div>
                                     </div>

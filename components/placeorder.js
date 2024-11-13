@@ -20,103 +20,103 @@ export default function Placeorder() {
 
     return (
 
-        <div classname="container">
-            <h1 classname="my-3">Preview Order</h1>
+        <div className="container">
+            <h1 className="my-3">Preview Order</h1>
 
             {/* <!-- Checkout Steps --> */}
-            <div classname="row checkout-steps mb-4">
-                <div classname="col active">Sign-In</div>
-                <div classname="col active">Shipping</div>
-                <div classname="col active">Payment</div>
-                <div classname="col">Place Order</div>
+            <div className="row checkout-steps mb-4">
+                <div className="col active">Sign-In</div>
+                <div className="col active">Shipping</div>
+                <div className="col active">Payment</div>
+                <div className="col">Place Order</div>
             </div>
-            <div classname="row">
+            <div className="row">
                 {/* <!-- Shipping and Payment Information --> */}
-                <div classname="col-md-8">
-                    <div classname="card mb-3">
-                        <div classname="card-body">
-                            <h5 classname="card-title">Shipping</h5>
-                            <p classname="card-text">
+                <div className="col-md-8">
+                    <div className="card mb-3">
+                        <div className="card-body">
+                            <h5 className="card-title">Shipping</h5>
+                            <p className="card-text">
                                 <strong>Name:</strong> John Doe <br />
                                 <strong>Address:</strong> 123 Street Name, City, 12345, Country
                             </p>
-                            <a href="/shipping-add" classname="btn btn-link">Edit</a>
+                            <a href="/shipping-add" className="btn btn-link">Edit</a>
                         </div>
                     </div>
 
-                    <div classname="card mb-3">
-                        <div classname="card-body">
-                            <h5 classname="card-title">Payment</h5>
-                            <p classname="card-text">
+                    <div className="card mb-3">
+                        <div className="card-body">
+                            <h5 className="card-title">Payment</h5>
+                            <p className="card-text">
                                 <strong>Method:</strong> PayPal
                             </p>
-                            <a href="/pay-method" classname="btn btn-link">Edit</a>
+                            <a href="/pay-method" className="btn btn-link">Edit</a>
                         </div>
                     </div>
 
-                    <div classname="card mb-3">
-                        <div classname="card-body">
-                            <h5 classname="card-title">Items</h5>
-                            <ul classname="list-group list-group-flush">
-                                <li classname="list-group-item">
-                                    <div classname="row align-items-center">
-                                        <div classname="col-md-6">
-                                            <img src="img/product-4.jpg" alt="Product 1" classname="img-fluid rounded thumbnail" />
+                    <div className="card mb-3">
+                        <div className="card-body">
+                            <h5 className="card-title">Items</h5>
+                            <ul className="list-group list-group-flush">
+                                <li className="list-group-item">
+                                    <div className="row align-items-center">
+                                        <div className="col-md-6">
+                                            <img src="img/product-4.jpg" alt="Product 1" className="img-fluid rounded thumbnail" />
                                             <a href="/product/product-1">Product 1</a>
                                         </div>
-                                        <div classname="col-md-3">1</div>
-                                        <div classname="col-md-3">$50.00</div>
+                                        <div className="col-md-3">1</div>
+                                        <div className="col-md-3">$50.00</div>
                                     </div>
                                 </li>
-                                <li classname="list-group-item">
-                                    <div classname="row align-items-center">
-                                        <div classname="col-md-6">
-                                            <img src="img/product-5.jpg" alt="Product 2" classname="img-fluid rounded thumbnail" />
+                                <li className="list-group-item">
+                                    <div className="row align-items-center">
+                                        <div className="col-md-6">
+                                            <img src="img/product-5.jpg" alt="Product 2" className="img-fluid rounded thumbnail" />
                                             <a href="/product/product-2">Product 2</a>
                                         </div>
-                                        <div classname="col-md-3">2</div>
-                                        <div classname="col-md-3">$30.00</div>
+                                        <div className="col-md-3">2</div>
+                                        <div className="col-md-3">$30.00</div>
                                     </div>
                                 </li>
                             </ul>
-                            <a href="/cart" classname="btn btn-link">Edit</a>
+                            <a href="/cart" className="btn btn-link">Edit</a>
                         </div>
                     </div>
                 </div>
 
                 {/* <!-- Order Summary --> */}
-                <div classname="col-md-4">
-                    <div classname="card">
-                        <div classname="card-body">
-                            <h5 classname="card-title">Order Summary</h5>
-                            <ul classname="list-group list-group-flush">
-                                <li classname="list-group-item">
-                                    <div classname="row">
-                                        <div classname="col">Items</div>
-                                        <div classname="col text-right">$110.00</div>
+                <div className="col-md-4">
+                    <div className="card">
+                        <div className="card-body">
+                            <h5 className="card-title">Order Summary</h5>
+                            <ul className="list-group list-group-flush">
+                                <li className="list-group-item">
+                                    <div className="row">
+                                        <div className="col">Items</div>
+                                        <div className="col text-right">$110.00</div>
                                     </div>
                                 </li>
-                                <li classname="list-group-item">
-                                    <div classname="row">
-                                        <div classname="col">Shipping</div>
-                                        <div classname="col text-right">$10.00</div>
+                                <li className="list-group-item">
+                                    <div className="row">
+                                        <div className="col">Shipping</div>
+                                        <div className="col text-right">$10.00</div>
                                     </div>
                                 </li>
-                                <li classname="list-group-item">
-                                    <div classname="row">
-                                        <div classname="col">Tax</div>
-                                        <div classname="col text-right">$16.50</div>
+                                <li className="list-group-item">
+                                    <div className="row">
+                                        <div className="col">Tax</div>
+                                        <div className="col text-right">$16.50</div>
                                     </div>
                                 </li>
-                                <li classname="list-group-item">
-                                    <div classname="row">
-                                        <div classname="col"><strong>Order Total</strong></div>
-                                        <div classname="col text-right"><strong>$136.50</strong></div>
+                                <li className="list-group-item">
+                                    <div className="row">
+                                        <div className="col"><strong>Order Total</strong></div>
+                                        <div className="col text-right"><strong>$136.50</strong></div>
                                     </div>
                                 </li>
-                                <li classname="list-group-item">
-                                    <div classname="d-grid">
-                                        <button type="button" classname="btn btn-primary btn-block">Place Order</button>
+                                <li className="list-group-item">
+                                    <div className="d-grid">
+                                        <button type="button" className="btn btn-primary btn-block">Place Order</button>
                                     </div>
                                 </li>
                             </ul>
