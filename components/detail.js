@@ -43,8 +43,9 @@ export default function Detail() {
                                 <small className="pt-1">(99 Reviews)</small>
                             </div>
                             <h3 className="font-weight-semi-bold mb-4">$150.00</h3>
-                            <p className="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea Nonumy</p>
-                            <div className="d-flex mb-3">
+                            <p className="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr 
+                                erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea Nonumy</p>
+                            {/* <div className="d-flex mb-3">
                                 <strong className="text-dark mr-3">Sizes:</strong>
                                 <form>
                                     <div className="custom-control custom-radio custom-control-inline">
@@ -93,7 +94,7 @@ export default function Detail() {
                                         <label className="custom-control-label" htmlFor="color-5">Green</label>
                                     </div>
                                 </form>
-                            </div>
+                            </div> */}
                             <div className="d-flex align-items-center mb-4 pt-2">
                                 <div className="input-group quantity mr-3" style={{ width: "130px" }}>
                                     <div className="input-group-btn">

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 
 export default function Navbar() {
     return (
@@ -21,17 +20,37 @@ export default function Navbar() {
                                     data-toggle="dropdown">My Account
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right">
-                                    <a href="/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
-                                    <a href="sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
+                                    <a href="http://localhost:3000/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
+                                    <a href="http://localhost:3000/sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
                                     <button className="dropdown-item" type="button" onclick="signoutHandler()">Sign Out</button>
 
                                 </div>
                             </div>
-                            {/* <div className="container-fluid">
+                            <div className="container-fluid">
                                 <button className="btn btn-light" id="modeSwitcher" onclick="switchModeHandler()">
                                     <i className="fas fa-sun" id="modeIcon"></i> <span id="modeText">Light</span>
                                 </button>
-                            </div> */}
+                            </div>
+                            <div className="btn-group mx-2">
+                                <button type="button" className="btn btn-sm btn-light dropdown-toggle"
+                                    data-toggle="dropdown">USD
+                                </button>
+                                <div className="dropdown-menu dropdown-menu-right">
+                                    <button className="dropdown-item" type="button">EUR</button>
+                                    <button className="dropdown-item" type="button">GBP</button>
+                                    <button className="dropdown-item" type="button">CAD</button>
+                                </div>
+                            </div>
+                            <div className="btn-group">
+                                <button type="button" className="btn btn-sm btn-light dropdown-toggle"
+                                    data-toggle="dropdown">EN
+                                </button>
+                                <div className="dropdown-menu dropdown-menu-right">
+                                    <button className="dropdown-item" type="button">FR</button>
+                                    <button className="dropdown-item" type="button">AR</button>
+                                    <button className="dropdown-item" type="button">RU</button>
+                                </div>
+                            </div>
                         </div>
                         <div className="d-inline-flex align-items-center d-block d-lg-none">
                             <a href="" className="btn px-0 ml-2">
@@ -132,11 +151,10 @@ export default function Navbar() {
                                         <i className="fas fa-heart text-primary"></i>
                                         <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
                                     </a>
-                                    <Link href={`/cart`} className="btn px-0 ml-3">
-                                    <i className="fas fa-shopping-cart text-primary"></i>
+                                    <a href="" className="btn px-0 ml-3">
+                                        <i className="fas fa-shopping-cart text-primary"></i>
                                         <span className="badge text-secondary border border-secondary rounded-circle" style={{ paddingBottom: '2px' }}>0</span>
-                                    
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </nav>
