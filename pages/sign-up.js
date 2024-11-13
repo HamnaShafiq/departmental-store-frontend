@@ -1,5 +1,4 @@
 import SignUp from "@/components/signup";
-
 const Signup = () => {
     return (
         <>
