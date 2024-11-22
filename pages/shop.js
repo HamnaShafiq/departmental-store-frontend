@@ -1,19 +1,14 @@
-
-import Breadcrumb from "@/components/shop/breadcrumb";
-import Sidebar from "@/components/shop/sidebar";
-import Products from "@/components/shop/product";
+import Header from "../components/home/header";
+import Featured from "../components/home/featured";
+import Categories from "../components/home/cateagories";
 
 const Shop = () => {
     return (
         <>
-           
-            <Breadcrumb/>
-            <div className="container-fluid">
-                <div className="row px-xl-5">
-                    <Sidebar/>
-                    <Products/>     
-                </div>   
-            </div>
+            
+            <Header/>
+            <Categories/>
+            <Featured/>
         </>
     );
 }

@@ -4,14 +4,22 @@ import Link from 'next/link';
 import { toast } from "react-toastify";
 import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
 import { CartContext } from '@/components/contexts/cartContext';
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
 
 export default function Featured() {
 
     const { products } = useContext(ProductCategoryContext);
-
     const { addItems } = useContext(CartContext);
+    const router = useRouter()
+
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+
+    const handleRedirect = (id) => {
+        { isAuthenticated ? addItems(id) : router.push('/sign-in') }
+    }
 
     return (
         <>
@@ -28,7 +36,7 @@ export default function Featured() {
                                         <div className="product-action">
                                             <button
                                                 className="btn btn-outline-dark btn-square"
-                                                onClick={() => addItems(pro._id)}
+                                                onClick={() => handleRedirect(pro._id)}
                                             >
                                                 <i className="fa fa-shopping-cart"></i>
                                             </button>

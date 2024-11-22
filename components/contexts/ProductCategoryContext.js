@@ -22,7 +22,6 @@ export const ProductCategoryProvider = ({ children }) => {
         try {
             const response = await axios.get(`${API_URL}/api/product/`);
             setProducts(response.data.data);
-            console.log('from products' , products);
         } catch (error) {
             console.log("Error in fetching categories", error);
         }

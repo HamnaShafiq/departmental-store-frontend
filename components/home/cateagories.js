@@ -14,8 +14,10 @@ export default function Categories() {
                 <div className="row px-xl-5 pb-3">
                     {categories.map((cat) => {
                         return (
-                            <div className="col-lg-3 col-md-4 col-sm-6 pb-1">
-                                {cat.products.length > 0 &&
+                            (
+                                cat.products.length > 0 &&
+                                <div key={cat._id} className="col-lg-3 col-md-4 col-sm-6 pb-1">
+
                                     <Link className="text-decoration-none" href={`/category/${cat.slug}`}>
                                         <div className="cat-item d-flex align-items-center mb-4">
                                             <div className="overflow-hidden" style={{ width: '100px', height: '100px' }}>
@@ -27,8 +29,9 @@ export default function Categories() {
                                             </div>
                                         </div>
                                     </Link>
-                                }
-                            </div>
+
+                                </div>
+                            )
                         )
                     })}
                 </div>

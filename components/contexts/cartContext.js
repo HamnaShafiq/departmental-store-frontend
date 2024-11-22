@@ -6,7 +6,7 @@ export const CartContext = createContext();
 
 const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children, isAuthenticated }) => {
     const [cartItems, setCartItems] = useState([]);
 
     const fetchAllCartItems = async () => {
@@ -89,11 +89,12 @@ export const CartProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        fetchAllCartItems();
+        { isAuthenticated && fetchAllCartItems(); }
+
     }, []);
 
     return (
-        <CartContext.Provider value={{ addItems, cartItems, removeItem ,updateQuantity }}>
+        <CartContext.Provider value={{ addItems, cartItems, removeItem, updateQuantity }}>
             {children}
         </CartContext.Provider>
     );
