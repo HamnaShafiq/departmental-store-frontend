@@ -90,8 +90,7 @@ export const CartProvider = ({ children, isAuthenticated }) => {
 
     useEffect(() => {
         { isAuthenticated && fetchAllCartItems(); }
-
-    }, []);
+    }, [isAuthenticated]);
 
     return (
         <CartContext.Provider value={{ addItems, cartItems, removeItem, updateQuantity }}>

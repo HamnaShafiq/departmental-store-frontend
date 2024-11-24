@@ -13,8 +13,6 @@ export default function Product() {
             const fetchData = async () => {
                 const response = await fetchProductBySlug(slug);
                 setProductData(response.data)
-                console.log('productData', productData);
-
             };
             fetchData();
         }

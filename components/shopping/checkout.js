@@ -1,212 +1,210 @@
-import { useFormik } from "formik"
-import * as Yup from 'yup';
-import { CartContext } from '@/components/contexts/cartContext';
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { CartContext } from "@/components/contexts/cartContext";
 import { useContext } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
 
 export default function Checkout() {
-
     const { cartItems } = useContext(CartContext);
-    console.log(cartItems);
 
-    const calculatePrice = (price, quantity) => {
-        return price * quantity;
-        console.log(price * quantity);
-    }
+    // Calculate Subtotal
+    const SubTotal = cartItems?.items?.reduce(
+        (acc, item) => acc + item.product.price * item.quantity,
+        0
+    ) || 0;
 
     const formik = useFormik({
         initialValues: {
             firstName: "",
             lastName: "",
-            phoneNumber: "",
-            postalCode: "",
-            city: "",
-            totalAmount: "",
-            addressLine1: "",
-            items: "",
-            totalAmount: "",
-            PaymentMethod: ""
+            shippingAddress: {
+                city: "",
+                addressLine1: "",
+                phoneNumber: "",
+                postalCode: "",
+            },
+            status: "Pending",
+            PaymentMethod: "Cash on Delivery",
+            items: cartItems?.items || [],
+            totalAmount: SubTotal + 10,
         },
         validationSchema: Yup.object({
-            firstName: Yup.string().required('firstName is required'),
-            lastName: Yup.string().required('lastName is required'),
-            phoneNumber: Yup.string().required('phoneNumber is required'),
-            postalCode: Yup.string().required('postalCode is required'),
-            city: Yup.string().required('city is required'),
-            addressLine1: Yup.string().required('addressLine1 is required'),
-            PaymentMethod: Yup.string().required('PaymentMethod is required')
+            firstName: Yup.string().required("First name is required"),
+            lastName: Yup.string().required("Last name is required"),
+            shippingAddress: Yup.object({
+                phoneNumber: Yup.string().required("Phone number is required"),
+                postalCode: Yup.string().required("Postal code is required"),
+                city: Yup.string().required("City is required"),
+                addressLine1: Yup.string().required("Address line is required"),
+            }),
+            PaymentMethod: Yup.string().required("Payment method is required"),
         }),
         onSubmit: async (values) => {
             try {
-                const response = await axios.post(`${PRIVATE_API_URL}/api/order/create`, values,
-                    { headers: { "x-access-token": token } })
-                console.log('values', values);
+                const token = localStorage.getItem("token");
+                const response = await axios.post(
+                    `${PRIVATE_API_URL}/api/order/create`,
+                    values,
+                    { headers: { "x-access-token": token } }
+                );
 
+                console.log("Payload:", values);
+                console.log("Response:", response);
                 toast.success("Order placed successfully.");
             } catch (error) {
-                console.log("Error in adding to cart", error);
-
-                toast.error(error.response?.data?.msg || "Failed to add to cart.");
+                console.error("Error in placing order:", error);
+                toast.error(error.response?.data?.msg || "Failed to place order.");
             }
-        }
-    })
+        },
+    });
+
     return (
-        <>
-            <div className="container-fluid">
-                <form onSubmit={formik.handleSubmit}>
-                    <div className="row px-xl-5">
-                        <div className="col-lg-8">
-                            <h5 className="section-title position-relative text-uppercase mb-3"><span className="bg-secondary pr-3">Billing Address</span></h5>
-                            <div className="bg-light p-30 mb-5">
-                                <div className="row">
-                                    <div className="col-md-6 form-group">
-                                        <label>First Name</label>
-                                        <input className="form-control" type="text" placeholder="John" />
-                                    </div>
-                                    <div className="col-md-6 form-group">
-                                        <label>Last Name</label>
-                                        <input className="form-control" type="text" placeholder="Doe" />
-                                    </div>
-                                    <div className="col-md-6 form-group">
-                                        <label>E-mail</label>
-                                        <input className="form-control" type="text" placeholder="example@email.com" />
-                                    </div>
-                                    <div className="col-md-6 form-group">
-                                        <label>Mobile No</label>
-                                        <input className="form-control" type="text" placeholder="+123 456 789" />
-                                    </div>
-                                    <div className="col-md-6 form-group">
-                                        <label>Address Line 1</label>
-                                        <input className="form-control" type="text" placeholder="123 Street" />
-                                    </div>
-                                    <div className="col-md-6 form-group">
-                                        <label>Address Line 2</label>
-                                        <input className="form-control" type="text" placeholder="123 Street" />
-                                    </div>
-
-                                    <div className="col-md-6 form-group">
-                                        <label>City</label>
-                                        <input className="form-control" type="text" placeholder="Lahore" />
-                                    </div>
-                                    <div className="col-md-6 form-group">
-                                        <label>ZIP Code</label>
-                                        <input className="form-control" type="text" placeholder="123" />
-                                    </div>
-                                    {/* <div className="col-md-12 form-group">
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input" id="newaccount" />
-                                            <label className="custom-control-label" for="newaccount">Create an account</label>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input" id="shipto" />
-                                            <label className="custom-control-label" for="shipto" data-toggle="collapse" data-target="#shipping-address">Ship to different address</label>
-                                        </div>
-                                    </div> */}
-                                </div>
-                            </div>
-                            <div className="collapse mb-5" id="shipping-address">
-                                <h5 className="section-title position-relative text-uppercase mb-3"><span className="bg-secondary pr-3">Shipping Address</span></h5>
-                                <div className="bg-light p-30">
-                                    <div className="row">
-                                        <div className="col-md-6 form-group">
-                                            <label>First Name</label>
-                                            <input className="form-control" type="text" placeholder="John" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>Last Name</label>
-                                            <input className="form-control" type="text" placeholder="Doe" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>E-mail</label>
-                                            <input className="form-control" type="text" placeholder="example@email.com" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>Mobile No</label>
-                                            <input className="form-control" type="text" placeholder="+123 456 789" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>Address Line 1</label>
-                                            <input className="form-control" type="text" placeholder="123 Street" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>Address Line 2</label>
-                                            <input className="form-control" type="text" placeholder="123 Street" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>Country</label>
-                                            <select className="custom-select">
-                                                <option selected>United States</option>
-                                                <option>Afghanistan</option>
-                                                <option>Albania</option>
-                                                <option>Algeria</option>
-                                            </select>
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>City</label>
-                                            <input className="form-control" type="text" placeholder="New York" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>State</label>
-                                            <input className="form-control" type="text" placeholder="New York" />
-                                        </div>
-                                        <div className="col-md-6 form-group">
-                                            <label>ZIP Code</label>
-                                            <input className="form-control" type="text" placeholder="123" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4">
-                            <h5 className="section-title position-relative text-uppercase mb-3"><span className="bg-secondary pr-3">Order Total</span></h5>
-                            <div className="bg-light p-30 mb-5">
-                                <div className="border-bottom">
-                                    <h6 className="mb-3">Products</h6>
-                                    {cartItems?.items?.map(item => (
-                                        <div key={item.product._id} className="d-flex justify-content-between">
-                                            <p>{item.product.name}</p>
-                                            <p>${item.product.price}</p>
-                                            <p>{item.quantity}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="border-bottom pt-3 pb-2">
-                                    <div className="d-flex justify-content-between mb-3">
-                                        <h6>Subtotal</h6>
-                                        <h6>$150</h6>
-                                    </div>
-                                    <div className="d-flex justify-content-between">
-                                        <h6 className="font-weight-medium">Shipping</h6>
-                                        <h6 className="font-weight-medium">$10</h6>
-                                    </div>
-                                </div>
-                                <div className="pt-2">
-                                    <div className="d-flex justify-content-between mt-2">
-                                        <h5>Total</h5>
-                                        <h5>$160</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mb-5">
-                                <h5 className="section-title position-relative text-uppercase mb-3"><span className="bg-secondary pr-3">Payment</span></h5>
-                                <div className="bg-light p-30">
-
-                                    <div className="form-group mb-4">
-                                        <div className="custom-control custom-radio">
-                                            <input type="radio" checked className="custom-control-input" name="payment" id="banktransfer" />
-                                            <label className="custom-control-label" for="banktransfer">Cash on Delivery</label>
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
-                                </div>
+        <div className="container-fluid">
+            <form onSubmit={formik.handleSubmit}>
+                <div className="row px-xl-5">
+                    {/* Billing Address */}
+                    <div className="col-lg-8">
+                        <h5 className="section-title position-relative text-uppercase mb-3">
+                            <span className="bg-secondary pr-3">Billing Address</span>
+                        </h5>
+                        <div className="bg-light p-30 mb-5">
+                            <div className="row">
+                                {/* First Name */}
+                                <InputField
+                                    label="First Name"
+                                    name="firstName"
+                                    placeholder="John"
+                                    value={formik.values.firstName}
+                                    onChange={formik.handleChange}
+                                    error={formik.errors.firstName}
+                                    touched={formik.touched.firstName}
+                                />
+                                {/* Last Name */}
+                                <InputField
+                                    label="Last Name"
+                                    name="lastName"
+                                    placeholder="Doe"
+                                    value={formik.values.lastName}
+                                    onChange={formik.handleChange}
+                                    error={formik.errors.lastName}
+                                    touched={formik.touched.lastName}
+                                />
+                                {/* Phone Number */}
+                                <InputField
+                                    label="Mobile No"
+                                    name="shippingAddress.phoneNumber"
+                                    placeholder="+123 456 789"
+                                    value={formik.values.shippingAddress.phoneNumber}
+                                    onChange={formik.handleChange}
+                                    error={formik.errors.shippingAddress?.phoneNumber}
+                                    touched={formik.touched.shippingAddress?.phoneNumber}
+                                />
+                                {/* Address */}
+                                <InputField
+                                    label="Address Line 1"
+                                    name="shippingAddress.addressLine1"
+                                    placeholder="123 Street"
+                                    value={formik.values.shippingAddress.addressLine1}
+                                    onChange={formik.handleChange}
+                                    error={formik.errors.shippingAddress?.addressLine1}
+                                    touched={formik.touched.shippingAddress?.addressLine1}
+                                />
+                                {/* City */}
+                                <InputField
+                                    label="City"
+                                    name="shippingAddress.city"
+                                    placeholder="Lahore"
+                                    value={formik.values.shippingAddress.city}
+                                    onChange={formik.handleChange}
+                                    error={formik.errors.shippingAddress?.city}
+                                    touched={formik.touched.shippingAddress?.city}
+                                />
+                                {/* Postal Code */}
+                                <InputField
+                                    label="ZIP Code"
+                                    name="shippingAddress.postalCode"
+                                    placeholder="12345"
+                                    value={formik.values.shippingAddress.postalCode}
+                                    onChange={formik.handleChange}
+                                    error={formik.errors.shippingAddress?.postalCode}
+                                    touched={formik.touched.shippingAddress?.postalCode}
+                                />
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-        </>
-    )
+
+                    {/* Order Summary */}
+                    <div className="col-lg-4">
+                        <h5 className="section-title position-relative text-uppercase mb-3">
+                            <span className="bg-secondary pr-3">Order Total</span>
+                        </h5>
+                        <div className="bg-light p-30 mb-5">
+                            <OrderSummary cartItems={cartItems} SubTotal={SubTotal} />
+                            <button
+                                type="submit"
+                                className="btn btn-block btn-primary font-weight-bold py-3"
+                            >
+                                Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    );
 }
+
+// Reusable InputField Component
+const InputField = ({ label, name, placeholder, value, onChange, error, touched }) => (
+    <div className="col-md-6 form-group">
+        <label>{label}</label>
+        <input
+            className={`form-control ${error && touched ? "is-invalid" : ""}`}
+            type="text"
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+        />
+        {error && touched && <small className="text-danger">{error}</small>}
+    </div>
+);
+
+// Order Summary Component
+const OrderSummary = ({ cartItems, SubTotal }) => (
+    <>
+        <div className="pb-3">
+            {cartItems?.items?.map((item, index) => (
+                <div
+                    key={`${item.product._id}-${index}`}
+                    className="d-flex justify-content-between py-2 border-bottom"
+                >
+                    <p className="m-0 text-truncate" style={{ width: "100px" }}>
+                        {item.product.name}
+                    </p>
+                    <p className="m-0">${item.product.price * item.quantity}</p>
+                    <p className="m-0">{item.quantity}</p>
+                </div>
+            ))}
+        </div>
+        <div className="border-bottom pt-3 pb-2">
+            <div className="d-flex justify-content-between">
+                <h6>Subtotal</h6>
+                <h6>${SubTotal}</h6>
+            </div>
+            <div className="d-flex justify-content-between">
+                <h6>Shipping</h6>
+                <h6>$10</h6>
+            </div>
+        </div>
+        <div className="pt-2">
+            <div className="d-flex justify-content-between">
+                <h5>Total</h5>
+                <h5>${SubTotal + 10}</h5>
+            </div>
+        </div>
+    </>
+);

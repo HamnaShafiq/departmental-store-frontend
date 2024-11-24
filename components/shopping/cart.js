@@ -55,7 +55,7 @@ export default function Cart() {
 
     return (
         <div className="container-fluid">
-            {!isAuthenticated || cartItems.product?.length === 0 ?( <h1>No items in cart. Shop Now....</h1> ):
+            {!isAuthenticated || cartItems?.product?.length === 0 ?( <h1>No items in cart. Shop Now....</h1> ):
                 (<div className="row px-xl-5">
                     <div className="col-lg-12 table-responsive mb-5">
                         <table className="table table-light table-borderless table-hover text-center mb-0">

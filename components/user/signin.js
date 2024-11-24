@@ -4,11 +4,13 @@ import * as Yup from 'yup';
 import { login } from '../../redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { useRouter } from "next/router";
 
 const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
 
 export default function SignIn() {
     const dispatch = useDispatch();
+    const router = useRouter();
 
     const formik = useFormik({
         initialValues: {
@@ -25,6 +27,7 @@ export default function SignIn() {
                 console.log('values', response.data.data.user);
                 dispatch(login({ token: response.data.data.token, user: response.data.data.user }));
                 toast.success('Signed in successfully')
+                router.push('/shop')
             } catch (error) {
                 console.log('error', error.response.data.msg);
                 toast.error(error.response.data.msg)

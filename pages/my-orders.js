@@ -1,9 +1,9 @@
-import History from "@/components/shopping/orderhistory";
+import MyOrders from "@/components/shopping/myOrders";
 
 const OrderHistory= () => {
     return (
         <>
-            <History/>
+            <MyOrders/>
         </>
     );
 }
