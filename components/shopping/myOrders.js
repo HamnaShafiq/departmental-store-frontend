@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import axios from 'axios';
 import { useEffect, useState } from "react"
+import Link from "next/link";
 
 const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
 
@@ -44,7 +45,7 @@ export default function History() {
                         <tr>
                             <th>Date</th>
                             <th>Time</th>
-                            <th>Total</th>
+                            <th>Total Amount</th>
                             <th>Payment Method</th>
                             <th>Delivered</th>
                             <th>Actions</th>
@@ -57,14 +58,15 @@ export default function History() {
                                     <tr key={order._id}>
                                         <th>{new Date(order.createdAt).toDateString()}</th>
                                         <th>{new Date(order.createdAt).toLocaleTimeString()}</th>
-                                        <th>{order.totalAmount}</th>
+                                        <th>Rs {order.totalAmount}</th>
                                         <th>{order.PaymentMethod}</th>
                                         <th>{order.status}</th>
+                                        <Link href={`/view-order/${order._id}`}>
                                         <th>View</th>
+                                        </Link>
                                     </tr>
                                 )
                             })}
-
                     </tbody>
                 </table>
             </div>

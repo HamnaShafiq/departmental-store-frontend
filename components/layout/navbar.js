@@ -2,13 +2,16 @@ import { useContext } from "react"
 import Link from "next/link";
 import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
 import { CartContext } from '@/components/contexts/cartContext';
+import { useSelector } from "react-redux";
 
 
 export default function Navbar() {
     const { categories } = useContext(ProductCategoryContext);
     const { cartItems } = useContext(CartContext);
     const itemCount = cartItems && cartItems.items ? cartItems.items.length : 0;
+    const signoutHandler =()=>{}
 
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
     return (
         <>
             <div className="container-fluid">
@@ -57,9 +60,23 @@ export default function Navbar() {
                                 data-toggle="dropdown">My Account
                             </button>
                             <div className="dropdown-menu dropdown-menu-right">
-                                <a href="/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
-                                <a href="sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
-                                <button className="dropdown-item" type="button" onclick="signoutHandler()">Sign Out</button>
+
+                                {isAuthenticated ? (
+                                    <>
+                                        <a href="my-orders">
+                                            <button className="dropdown-item" type="button">My Orders</button>
+                                        </a>
+                                        <button className="dropdown-item" type="button" onClick={signoutHandler()}>
+                                            Sign Out
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <a href="/sign-in"><button className="dropdown-item" type="button">Sign in</button></a>
+                                        <a href="/sign-up"><button className="dropdown-item" type="button">Sign up</button></a>
+                                    </>
+                                )}
+
                             </div>
                         </div>
 
