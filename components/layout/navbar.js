@@ -2,14 +2,19 @@ import { useContext } from "react"
 import Link from "next/link";
 import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
 import { CartContext } from '@/components/contexts/cartContext';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "@/redux/authSlice";
 
 
 export default function Navbar() {
+    const dispatch = useDispatch();
     const { categories } = useContext(ProductCategoryContext);
     const { cartItems } = useContext(CartContext);
     const itemCount = cartItems && cartItems.items ? cartItems.items.length : 0;
-    const signoutHandler =()=>{}
+
+    const signoutHandler = () => {
+        dispatch(logout());       
+    }
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
     return (
@@ -66,7 +71,7 @@ export default function Navbar() {
                                         <a href="my-orders">
                                             <button className="dropdown-item" type="button">My Orders</button>
                                         </a>
-                                        <button className="dropdown-item" type="button" onClick={signoutHandler()}>
+                                        <button className="dropdown-item" type="button" onClick={()=>signoutHandler()}>
                                             Sign Out
                                         </button>
                                     </>
