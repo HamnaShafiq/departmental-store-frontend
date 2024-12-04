@@ -26,7 +26,6 @@ export default function Product() {
 
     return (
         <>
-            <Breadcrumb />
             <div className="container-fluid">
                 <div className="row px-xl-5">
                     <Sidebar />

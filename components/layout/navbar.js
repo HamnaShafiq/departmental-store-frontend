@@ -43,7 +43,7 @@ export default function Navbar() {
                             <span className="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
                         </a>
                     </div>
-                    <div className="col-lg-4 col-6 text-left">
+                    {/* <div className="col-lg-4 col-6 text-left">
                         <form action="">
                             <div className="input-group">
                                 <input type="text" className="form-control" placeholder="Search for products" />
@@ -54,7 +54,7 @@ export default function Navbar() {
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> */}
                     <div className="col-lg-4 col-6 text-right d-flex justify-content-end align-items-center">
                         <div>
                             <p className="m-0">Customer Service</p>

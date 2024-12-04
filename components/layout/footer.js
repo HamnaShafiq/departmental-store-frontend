@@ -79,7 +79,7 @@ export default function Footer() {
                         <p className="mb-md-0 text-center text-md-left text-secondary">
                             &copy; <a className="text-primary" href="#">Domain</a>. All Rights Reserved. Designed
                             by
-                            <a className="text-primary" href="https://htmlcodex.com">HTML Codex</a>
+                            <a className="text-primary" href="https://htmlcodex.com">HSN</a>
                         </p>
                     </div>
                     <div className="col-md-6 px-xl-0 text-center text-md-right">

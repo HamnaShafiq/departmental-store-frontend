@@ -40,9 +40,9 @@ export default function Featured() {
                                             >
                                                 <i className="fa fa-shopping-cart"></i>
                                             </button>
-                                            <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
+                                            {/* <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
                                                 <i className="fa fa-search "></i>
-                                            </Link>
+                                            </Link> */}
                                         </div>
                                     </div>
 

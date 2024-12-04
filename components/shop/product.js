@@ -48,10 +48,10 @@ export default function Products({ categoryData }) {
                                         <div className="product-action">
                                             <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-shopping-cart"></i></a>
                                             <a className="btn btn-outline-dark btn-square" href=""><i className="far fa-heart"></i></a>
-                                            <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-sync-alt"></i></a>
-                                            <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
+                                            {/* <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-sync-alt"></i></a> */}
+                                            {/* <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
                                                 <i className="fa fa-search "></i>
-                                            </Link>
+                                            </Link> */}
                                         </div>
                                     </div>
                                     <div className="text-center py-4">
@@ -59,14 +59,14 @@ export default function Products({ categoryData }) {
                                         <div className="d-flex align-items-center justify-content-center mt-2">
                                             <h5>${pro.price}</h5><h6 className="text-muted ml-2"><del>$123.00</del></h6>
                                         </div>
-                                        <div className="d-flex align-items-center justify-content-center mb-1">
+                                        {/* <div className="d-flex align-items-center justify-content-center mb-1">
                                             <small className="fa fa-star text-primary mr-1"></small>
                                             <small className="fa fa-star text-primary mr-1"></small>
                                             <small className="fa fa-star text-primary mr-1"></small>
                                             <small className="far fa-star text-primary mr-1"></small>
                                             <small className="far fa-star text-primary mr-1"></small>
                                             <small>(99)</small>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ export default function Products({ categoryData }) {
                         <p>No products found in this category.</p>
                     )}
 
-                    <div className="col-12">
+                    {/* <div className="col-12">
                         <nav>
                             <ul className="pagination justify-content-center">
                                 <li className="page-item disabled"><a className="page-link" href="#">Previous</a></li>
@@ -85,7 +85,7 @@ export default function Products({ categoryData }) {
                                 <li className="page-item"><a className="page-link" href="#">Next</a></li>
                             </ul>
                         </nav>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
