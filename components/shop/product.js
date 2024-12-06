@@ -1,9 +1,17 @@
 import { useEffect , useContext } from "react";
 import Link from 'next/link';
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import { CartContext } from '@/components/contexts/cartContext';
 
 export default function Products({ categoryData }) {
+    
+    const router = useRouter()
+    
     const { addItems } = useContext(CartContext);
+
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+
     if (!categoryData) {
         return <div>Loading...</div>;
     }
