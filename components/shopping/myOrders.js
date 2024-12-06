@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react"
 import Link from "next/link";
 
-const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
+const PRIVATE_API_URL = process.env.NEXT_PUBLIC_USER_API_URL;
 
 export default function History() {
     const [orders, setOrders] = useState([])

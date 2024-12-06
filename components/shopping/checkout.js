@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import {OrderSummary} from './orderSummary'
 
-const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
+const PRIVATE_API_URL = process.env.NEXT_PUBLIC_USER_API_URL;
 
 export default function Checkout() {
     const { cartItems } = useContext(CartContext);

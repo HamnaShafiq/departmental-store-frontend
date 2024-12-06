@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useRouter } from "next/router";
 
-const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
+const PRIVATE_API_URL = process.env.NEXT_PUBLIC_USER_API_URL;
 
 export default function SignIn() {
     const dispatch = useDispatch();

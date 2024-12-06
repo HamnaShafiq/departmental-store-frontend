@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
-const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
+const PRIVATE_API_URL = process.env.NEXT_PUBLIC_USER_API_URL;
 
 export const CartProvider = ({ children, isAuthenticated }) => {
     const [cartItems, setCartItems] = useState([]);
