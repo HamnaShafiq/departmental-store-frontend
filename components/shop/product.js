@@ -47,11 +47,11 @@ export default function Products({ categoryData }) {
                                         <img className="img-fluid w-100" src="img/product-9.jpg" alt={pro.name} />
                                         <div className="product-action">
                                             <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-shopping-cart"></i></a>
-                                            <a className="btn btn-outline-dark btn-square" href=""><i className="far fa-heart"></i></a>
-                                            {/* <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-sync-alt"></i></a> */}
-                                            {/* <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
+                                            {/* <a className="btn btn-outline-dark btn-square" href=""><i className="far fa-heart"></i></a>
+                                            <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-sync-alt"></i></a> */}
+                                            <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">
                                                 <i className="fa fa-search "></i>
-                                            </Link> */}
+                                            </Link>
                                         </div>
                                     </div>
                                     <div className="text-center py-4">
