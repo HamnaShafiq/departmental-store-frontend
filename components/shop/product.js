@@ -1,11 +1,15 @@
-import { useEffect } from "react";
+import { useEffect , useContext } from "react";
 import Link from 'next/link';
-
+import { CartContext } from '@/components/contexts/cartContext';
 
 export default function Products({ categoryData }) {
-
+    const { addItems } = useContext(CartContext);
     if (!categoryData) {
         return <div>Loading...</div>;
+    }
+
+    const handleRedirect = (id) => {
+        { isAuthenticated ? addItems(id) : router.push('/sign-in') }
     }
 
     return (
@@ -46,7 +50,12 @@ export default function Products({ categoryData }) {
                                     <div className="product-img position-relative overflow-hidden">
                                         <img className="img-fluid w-100" src="img/product-9.jpg" alt={pro.name} />
                                         <div className="product-action">
-                                            <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-shopping-cart"></i></a>
+                                            <button
+                                                className="btn btn-outline-dark btn-square"
+                                                onClick={() => handleRedirect(pro._id)}
+                                            >
+                                                <i className="fa fa-shopping-cart"></i>
+                                            </button>
                                             {/* <a className="btn btn-outline-dark btn-square" href=""><i className="far fa-heart"></i></a>
                                             <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-sync-alt"></i></a> */}
                                             <Link href={`/products/${pro.slug}`} className="btn btn-outline-dark btn-square">

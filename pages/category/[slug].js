@@ -1,7 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from 'next/router';
-import { useProduct } from '../../components/contexts/ProductCategoryContext';
-import Sidebar from "@/components/shop/sidebar";
 import Products from "@/components/shop/product";
 
 import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
@@ -27,7 +25,6 @@ export default function Product() {
         <>
             <div className="container-fluid">
                 <div className="row px-xl-5">
-                    <Sidebar />
                     <Products categoryData={categoryData} />
                 </div>
             </div>
