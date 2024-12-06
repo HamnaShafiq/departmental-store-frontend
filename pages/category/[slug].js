@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useRouter } from 'next/router';
 import { useProduct } from '../../components/contexts/ProductCategoryContext';
-import Breadcrumb from "@/components/shop/breadcrumb";
 import Sidebar from "@/components/shop/sidebar";
 import Products from "@/components/shop/product";
 
