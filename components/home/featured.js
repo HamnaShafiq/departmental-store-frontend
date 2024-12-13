@@ -1,13 +1,11 @@
 import { useContext } from "react"
-import axios from 'axios';
 import Link from 'next/link';
-import { toast } from "react-toastify";
 import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
 import { CartContext } from '@/components/contexts/cartContext';
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
-const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
+const ADMIN_API_URL = process.env.NEXT_PUBLIC_ADMIN_API_URL;
 
 export default function Featured() {
 
@@ -32,7 +30,14 @@ export default function Featured() {
                             <div className="col-lg-3 col-md-4 col-sm-6 pb-1">
                                 <div className="product-item bg-light mb-4">
                                     <div className="product-img position-relative overflow-hidden">
-                                        <img className="img-fluid w-100" src="img/product-1.jpg" alt="" />
+                                        {pro?.images?.length > 0 && (
+                                            <img
+                                                className="img-fluid w-100"
+                                                src={`${ADMIN_API_URL}/${pro.images[0].url}`}
+                                                alt={pro?.name || 'Product Image'}
+                                            />
+                                        )}
+
                                         <div className="product-action">
                                             <button
                                                 className="btn btn-outline-dark btn-square"
@@ -50,9 +55,9 @@ export default function Featured() {
                                         <a className="h6 text-decoration-none text-truncate" href="">{pro.name}</a>
                                         <div className="d-flex align-items-center justify-content-center mt-2">
                                             <h5>${pro.price}</h5>
-                                            <h6 className="text-muted ml-2">
+                                            {/* <h6 className="text-muted ml-2">
                                                 <del>$123.00</del>
-                                            </h6>
+                                            </h6> */}
                                         </div>
                                         <div className="d-flex align-items-center justify-content-center mb-1">
                                             <small className="fa fa-star text-primary mr-1"></small>

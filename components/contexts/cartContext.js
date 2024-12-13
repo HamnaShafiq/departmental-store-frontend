@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
-const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
+const PRIVATE_API_URL = process.env.NEXT_PUBLIC_USER_API_URL;
 
 export const CartProvider = ({ children, isAuthenticated }) => {
     const [cartItems, setCartItems] = useState([]);
@@ -34,7 +34,6 @@ export const CartProvider = ({ children, isAuthenticated }) => {
             );
 
             setCartItems(response.data.data)
-            console.log('itemCount', cartItems);
 
             await fetchAllCartItems();
 
@@ -50,20 +49,26 @@ export const CartProvider = ({ children, isAuthenticated }) => {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await axios.get(
+            await axios.get(
                 `${PRIVATE_API_URL}/api/cart/removeItem/${itemId}`,
                 { headers: { "x-access-token": token } }
             );
 
-            setCartItems(response.data.data)
+            const removeIt = cartItems.items.filter((it) => it._id.toString() !== itemId)
+
+            console.log('removeIt',  removeIt)
+
+            // console.log('CartItems', cartItems);
+            
+            setCartItems({...cartItems , items:removeIt})
 
             await fetchAllCartItems();
 
             toast.success("Product removed from cart.");
         } catch (error) {
-            console.log("Error in adding to cart", error);
+            console.log("Error in removing item from cart", error);
 
-            toast.error(error.response?.data?.msg || "Failed to add to cart.");
+            toast.error(error.response?.data?.msg || "Failed to removing item from cart.");
         }
     };
 

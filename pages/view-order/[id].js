@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from 'axios'
 
-const PRIVATE_API_URL = process.env.NEXT_PUBLIC_PRIVATE_API_URL;
+const PRIVATE_API_URL = process.env.NEXT_PUBLIC_USER_API_URL;
 
 const OrderPage = () => {
     const router = useRouter();

@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { useSelector } from 'react-redux';
 
+const ADMIN_API_URL = process.env.NEXT_PUBLIC_ADMIN_API_URL;
+
 export default function Cart() {
     const { cartItems, removeItem, updateQuantity } = useContext(CartContext);
     const [updatedCartItems, setUpdatedCartItems] = useState(cartItems?.items || []);
@@ -72,7 +74,7 @@ export default function Cart() {
                                 {updatedCartItems?.map((item) => (
                                     <tr key={item._id}>
                                         <td className="align-middle">
-                                            <img src="img/product-1.jpg" alt="" style={{ width: "50px" }} />
+                                            <img src={`${ADMIN_API_URL}/${item?.product?.images[0]?.url}`} alt="" style={{ width: "80px" }} />
                                         </td>
                                         <td className="align-middle">
                                             {item.product?.name}

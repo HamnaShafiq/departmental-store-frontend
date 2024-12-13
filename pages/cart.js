@@ -4,7 +4,6 @@ const ShoppingCart = () => {
     return (
         <>
             <Cart/>
-            {/* <Product/> */}
         </>
     );
 }
