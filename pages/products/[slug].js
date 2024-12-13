@@ -1,12 +1,20 @@
 import { useEffect, useState, useContext } from "react"
 import { useRouter } from 'next/router';
+import { useSelector } from "react-redux";
 import { ProductCategoryContext } from '@/components/contexts/ProductCategoryContext';
+import { CartContext } from '@/components/contexts/cartContext';
+
+const ADMIN_API_URL = process.env.NEXT_PUBLIC_ADMIN_API_URL;
 
 export default function Product() {
     const router = useRouter();
     const { slug } = router.query;
     const [productData, setProductData] = useState(null);
     const { fetchProductBySlug } = useContext(ProductCategoryContext);
+
+    const { addItems } = useContext(CartContext);
+
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     useEffect(() => {
         if (slug) {
@@ -18,6 +26,13 @@ export default function Product() {
         }
 
     }, [fetchProductBySlug, slug]);
+
+
+
+    const handleRedirect = (id) => {
+        { isAuthenticated ? addItems(id) : router.push('/sign-in') }
+    }
+
     return (
         <>
             <div className="container-fluid pb-5">
@@ -25,18 +40,11 @@ export default function Product() {
                     <div className="col-lg-5 mb-30">
                         <div id="product-carousel" className="carousel slide" data-ride="carousel">
                             <div className="carousel-inner bg-light">
-                                <div className="carousel-item active">
-                                    <img className="w-100 h-100" src="../img/product-1.jpg" alt="Image" />
-                                </div>
-                                <div className="carousel-item">
-                                    <img className="w-100 h-100" src="../img/product-2.jpg" alt="Image" />
-                                </div>
-                                <div className="carousel-item">
-                                    <img className="w-100 h-100" src="../img/product-3.jpg" alt="Image" />
-                                </div>
-                                <div className="carousel-item">
-                                    <img className="w-100 h-100" src="../img/product-4.jpg" alt="Image" />
-                                </div>
+                                {productData?.images?.map((img, i) =>
+                                    <div className={`carousel-item ${i === 0 ? 'active' : ''}`}>
+                                        <img className=" h-100 w-100" src={`${ADMIN_API_URL}/${img.url}`} alt="product image" />
+                                    </div>
+                                )}
                             </div>
                             <a className="carousel-control-prev" href="#product-carousel" data-slide="prev">
                                 <i className="fa fa-2x fa-angle-left text-dark"></i>
@@ -62,10 +70,10 @@ export default function Product() {
                             </div>
                             <h3 className="font-weight-semi-bold mb-4">$150.00</h3>
                             <p className="mb-4">{productData?.description}</p>
-                            
-                            
+
+
                             <div className="d-flex align-items-center mb-4 pt-2">
-                                <div className="input-group quantity mr-3" style={{ width: "130px" }}>
+                                {/* <div className="input-group quantity mr-3" style={{ width: "130px" }}>
                                     <div className="input-group-btn">
                                         <button className="btn btn-primary btn-minus">
                                             <i className="fa fa-minus"></i>
@@ -77,8 +85,8 @@ export default function Product() {
                                             <i className="fa fa-plus"></i>
                                         </button>
                                     </div>
-                                </div>
-                                <button className="btn btn-primary px-3">
+                                </div> */}
+                                <button className="btn btn-primary px-3" onClick={() => handleRedirect(productData._id)}>
                                     <i className="fa fa-shopping-cart mr-1"></i> Add To Cart
                                 </button>
                             </div>
@@ -98,7 +106,7 @@ export default function Product() {
                                 <h4 className="mb-3">Product Description</h4>
                                 <p>{productData?.description}</p>
                             </div>
-                            
+
                             <div className="tab-pane fade" id="tab-pane-3">
                                 <h4 className="mb-4">Leave a review</h4>
                                 <form>

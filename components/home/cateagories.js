@@ -20,10 +20,8 @@ export default function Categories() {
 
                                     <Link className="text-decoration-none" href={`/category/${cat.slug}`}>
                                         <div className="cat-item d-flex align-items-center mb-4">
-                                            <div className="overflow-hidden" style={{ width: '100px', height: '100px' }}>
-                                                <img className="img-fluid" src="/img/cat-1.jpg" alt="s" />
-                                            </div>
-                                            <div className="flex-fill pl-3">
+                                           
+                                            <div className="flex-fill p-3">
                                                 <h6>{cat.name}</h6>
                                                 <small className="text-body">{cat.products.length} Products</small>
                                             </div>

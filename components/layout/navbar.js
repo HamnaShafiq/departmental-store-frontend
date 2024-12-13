@@ -38,9 +38,8 @@ export default function Navbar() {
                 </div>
                 <div className="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex justify-content-between">
                     <div className="col-lg-4">
-                        <a href="" className="text-decoration-none">
-                            <span className="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
-                            <span className="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+                        <a href="/" className="text-decoration-none">
+                            <img src="/img/logo.png" style={{height:80, width:'auto'}}/>
                         </a>
                     </div>
                     {/* <div className="col-lg-4 col-6 text-left">

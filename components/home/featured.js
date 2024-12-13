@@ -30,7 +30,14 @@ export default function Featured() {
                             <div className="col-lg-3 col-md-4 col-sm-6 pb-1">
                                 <div className="product-item bg-light mb-4">
                                     <div className="product-img position-relative overflow-hidden">
-                                        {pro.images.map((img)=><img className="img-fluid w-100"  src={`${ADMIN_API_URL}/${img.url}`}  alt="" />)}
+                                        {pro?.images?.length > 0 && (
+                                            <img
+                                                className="img-fluid w-100"
+                                                src={`${ADMIN_API_URL}/${pro.images[0].url}`}
+                                                alt={pro?.name || 'Product Image'}
+                                            />
+                                        )}
+
                                         <div className="product-action">
                                             <button
                                                 className="btn btn-outline-dark btn-square"

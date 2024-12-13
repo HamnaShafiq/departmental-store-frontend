@@ -5,7 +5,6 @@ import Categories from "../components/home/cateagories";
 const Shop = () => {
     return (
         <>
-            
             <Header/>
             <Categories/>
             <Featured/>
