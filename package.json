@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "18": "^0.0.0",
-    "@next/swc-win32-x64-msvc": "^14.2.13",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.7",
     "formik": "^2.4.6",
