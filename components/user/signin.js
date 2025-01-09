@@ -23,7 +23,7 @@ export default function SignIn() {
         }),
         onSubmit: async (values) => {
             try {
-                const response = await axios.post(`${PRIVATE_API_URL}/api/user/login`, values);
+                const response = await axios.post(`${PRIVATE_API_URL}api/user/login`, values);
                 console.log('values', response.data.data.user);
                 dispatch(login({ token: response.data.data.token, user: response.data.data.user }));
                 toast.success('Signed in successfully')
